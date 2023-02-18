@@ -10,7 +10,16 @@ else
     curl -o ~/serviceinfo_api_server.yml https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/serviceinfo_api_server.yml
     cp -f ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 fi
-SSH_PUB_KEY=$(sudo cat /home/hendrik/.ssh/id_rsa.pub)
+
+FILE=~/.ssh/id_rsa.pub
+if [ -f "$FILE" ]; then
+    echo "Using $FILE as SSH_PUB_KEY."
+else 
+    echo "$FILE does not exist. Let's create a new one"
+    ssh-keygen
+fi
+
+SSH_PUB_KEY=$(sudo cat ~/.ssh/id_rsa.pub)
 echo "Set SSH key to $SSH_PUB_KEY" 
 
 read -p "Path to files [/etc/fdo-configs]: " PATH_FILES
