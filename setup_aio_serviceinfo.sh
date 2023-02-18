@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-FILE=serviceinfo_api_server.yml.bu
+FILE=~/serviceinfo_api_server.yml.bu
 if [ -f "$FILE" ]; then
     echo "Using $FILE as base."
-    cp serviceinfo_api_server.yml.bu serviceinfo_api_server.yml
+    cp ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 else 
     echo "$FILE does not exist. Downloading"
     curl -o ~/serviceinfo_api_server.yml https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/serviceinfo_api_server.yml
-    cp serviceinfo_api_server.yml.bu serviceinfo_api_server.yml
+    cp -f ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 fi
 SSH_PUB_KEY=$(sudo cat /home/hendrik/.ssh/id_rsa.pub)
 echo "Set SSH key to $SSH_PUB_KEY" 
@@ -46,4 +46,4 @@ sed -i "s|<RED HAT PASSWORD>|${RED_HAT_PASSWORD}|g" serviceinfo_api_server.yml
 sed -i "s|<SERVICE TOKEN>|${SERVICE_TOKEN}|g" serviceinfo_api_server.yml
 sed -i "s|<ADMIN TOKEN>|${ADMIN_TOKEN}|g" serviceinfo_api_server.yml
 
-sudo cp -f serviceinfo_api_server.yml /etc/fdo/aio/configs/serviceinfo_api_server.yml
+sudo cp -f ~/serviceinfo_api_server.yml /etc/fdo/aio/configs/serviceinfo_api_server.yml
