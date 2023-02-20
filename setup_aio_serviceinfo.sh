@@ -2,6 +2,8 @@
 
 
 FILE=~/serviceinfo_api_server.yml.bu
+
+echo "Checking if $FILE exist
 if [ -f "$FILE" ]; then
     echo "Using $FILE as base."
     cp ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
@@ -9,6 +11,17 @@ else
     echo "$FILE does not exist. Downloading"
     curl -o ~/serviceinfo_api_server.yml https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/serviceinfo_api_server.yml
     cp -f ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
+fi
+
+FILE= ~/etc/fdo-configs
+echo "Checking if default config $FILE exist" 
+if [ -d "$FILE" ]; then
+    echo "Using $FILE as config."
+    
+else 
+    curl -o ~/fdo-configs.tar.gz https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/fdo-configs.tar.gz 
+    tar xvf ~/fdo-configs.tar.gz -C ~
+    sudo cp -r ~/fdo-configs/ /etc
 fi
 
 FILE=~/.ssh/id_rsa.pub
