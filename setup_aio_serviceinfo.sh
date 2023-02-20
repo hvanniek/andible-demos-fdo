@@ -61,11 +61,11 @@ ADMIN_TOKEN=$(grep admin_auth_token /etc/fdo/aio/configs/serviceinfo_api_server.
 
 echo "Admin Token: $ADMIN_TOKEN"
 
-sed -i "s|<SSH PUB KEY>|${SSH_PUB_KEY}|g" serviceinfo_api_server.yml
-sed -i "s|<PATH FILES>|${PATH_FILES}|g" serviceinfo_api_server.yml
-sed -i "s|<RED HAT USER>|${RED_HAT_USER}|g" serviceinfo_api_server.yml
-sed -i "s|<RED HAT PASSWORD>|${RED_HAT_PASSWORD}|g" serviceinfo_api_server.yml
-sed -i "s|<SERVICE TOKEN>|${SERVICE_TOKEN}|g" serviceinfo_api_server.yml
-sed -i "s|<ADMIN TOKEN>|${ADMIN_TOKEN}|g" serviceinfo_api_server.yml
+sed -i "s|<SSH PUB KEY>|${SSH_PUB_KEY}|g" ~/serviceinfo_api_server.yml
+sed -i "s|<PATH FILES>|${PATH_FILES}|g" ~/serviceinfo_api_server.yml
+sed -i "s|<RED HAT USER>|${RED_HAT_USER}|g" ~/serviceinfo_api_server.yml
+sed -i "s|<RED HAT PASSWORD>|${RED_HAT_PASSWORD}|g" ~/serviceinfo_api_server.yml
+sed -i "s|<SERVICE TOKEN>|${SERVICE_TOKEN}|g" ~/serviceinfo_api_server.yml
+sed -i "s|<ADMIN TOKEN>|${ADMIN_TOKEN}|g" ~/serviceinfo_api_server.yml
 
 sudo cp -f ~/serviceinfo_api_server.yml /etc/fdo/aio/configs/serviceinfo_api_server.yml
