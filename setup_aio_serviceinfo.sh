@@ -13,7 +13,7 @@ else
     cp -f ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 fi
 
-FILE= ~/etc/fdo-configs
+FILE=/etc/fdo-configs
 echo "Checking if default config $FILE exist" 
 if [ -d "$FILE" ]; then
     echo "Using $FILE as config."
