@@ -3,7 +3,7 @@
 
 FILE=~/serviceinfo_api_server.yml.bu
 
-echo "Checking if $FILE exist
+echo "Checking if $FILE exist" 
 if [ -f "$FILE" ]; then
     echo "Using $FILE as base."
     cp ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
