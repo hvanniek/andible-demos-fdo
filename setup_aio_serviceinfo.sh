@@ -9,7 +9,7 @@ if [ -f "$FILE" ]; then
     cp ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 else 
     echo "$FILE does not exist. Downloading"
-    curl -o ~/serviceinfo_api_server.yml https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/serviceinfo_api_server.yml
+    curl -o ~/serviceinfo_api_server.yml.bu https://raw.githubusercontent.com/luisarizmendi/tutorial-secure-onboarding/master/documentation/modules/ROOT/examples/serviceinfo_api_server.yml
     cp -f ~/serviceinfo_api_server.yml.bu ~/serviceinfo_api_server.yml
 fi
 
