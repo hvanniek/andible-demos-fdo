@@ -122,7 +122,7 @@ key = "<SSH PUB KEY>"
 [[customizations.user]]
 name = "admin"
 description = "Admin user"
-password = <ADMIN PASSW>
-#password = "<encrypted_password using following command : python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'>"
+password = "<ADMIN PASSW>"
+# password = "<encrypted_password using following command : python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'>"
 key = "<SSH PUB KEY>"
 groups = ["users","wheel"]
